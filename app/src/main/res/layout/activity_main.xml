@@ -9,19 +9,21 @@
     android:clickable="true">
 
     <Button
-        android:layout_width="300dp"
+        android:layout_width="180dp"
         android:layout_height="50dp"
         android:text=" "
         android:id="@+id/button"
         android:background="@drawable/my_profile_button"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="34dp"
+        android:layout_marginEnd="34dp" />
 
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
         android:id="@+id/button2"
         android:background="@drawable/my_meds_button"
         android:layout_below="@+id/button"
@@ -29,8 +31,8 @@
         android:layout_alignStart="@+id/button" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:id="@+id/button3"
         android:onClick="sendMessage"
         android:background="@drawable/my_tb_world_button"
