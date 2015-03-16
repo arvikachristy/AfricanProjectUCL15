@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.user.thenewavaafrican2015" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MyProfileNew"
+            android:label="@string/title_activity_my_profile_new"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.example.user.thenewavaafrican2015.MyProfileNew" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MyMedicine"
+            android:label="@string/title_activity_my_medicine"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.example.user.thenewavaafrican2015.MyMedicine" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MyHelp"
+            android:label="@string/title_activity_my_help"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.example.user.thenewavaafrican2015.MyHelp" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MyDosage"
+            android:label="@string/title_activity_my_dosage" >
+        </activity>
+        <activity
+            android:name=".MyAlerts"
+            android:label="@string/title_activity_my_alerts" >
+        </activity>
+        <activity
+            android:name=".MyProgress"
+            android:label="@string/title_activity_my_progress" >
+        </activity>
+        <activity
+            android:name=".MyHistory"
+            android:label="@string/title_activity_my_history" >
+        </activity>
+    </application>
+
+</manifest>

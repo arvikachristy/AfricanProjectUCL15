@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name = "our_main_background">#009900</color>
+
+    <style name="ourmaintheme" parent="android:Theme.Light">
+        <item name="android:windowBackground">@color/our_main_background</item>
+
+    </style>
+
+
+</resources>
