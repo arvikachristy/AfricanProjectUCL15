@@ -5,18 +5,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
-import android.graphics.Color;
-import android.support.v4.app.Fragment;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Button;
-import android.widget.ImageView;
 
-public class MyMedicine extends ActionBarActivity {
+public class MyMedicine extends ActionBarActivity implements View.OnClickListener{
     Button mydosagebutton, alertsbutton, historybutton, progressbutton;
 
     @Override
