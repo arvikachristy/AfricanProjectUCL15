@@ -31,7 +31,7 @@
         android:layout_alignStart="@+id/button" />
 
     <Button
-        android:layout_width="150dp"
+        android:layout_width="180dp"
         android:layout_height="50dp"
         android:id="@+id/button3"
         android:onClick="sendMessage"

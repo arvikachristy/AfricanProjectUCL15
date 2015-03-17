@@ -111,8 +111,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
             default:
                 return super.onOptionsItemSelected(item);
-
-
         }}
 
 
