@@ -8,16 +8,11 @@
     android:background="@drawable/woodbckmain"
     android:id="@+id/profile_main">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView2" />
-
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:id="@+id/profilePicture"
         android:layout_marginTop="49dp"
-        android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
         android:src="@drawable/nouser" />
 
@@ -48,18 +43,18 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/agetab"
         android:layout_below="@+id/emailtab"
         android:layout_alignLeft="@+id/emailtab"
         android:layout_alignStart="@+id/emailtab"
-        android:text="Height" />
+        android:text="Age" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button4"
-        android:layout_below="@+id/editText"
+        android:text="Save Profile"
+        android:id="@+id/saveprofiletab"
+        android:layout_below="@+id/agetab"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
