@@ -1,6 +1,8 @@
 package com.example.user.thenewavaafrican2015;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -84,9 +86,23 @@ public class MyProfileNew extends ActionBarActivity {
 
                 default:
                     return super.onOptionsItemSelected(item);
-
-
-            }}
-
+            }
+        }
+    }
+    public void loadProfile(String name)
+    {
+        UserDbHelper mDbHelper = new UserDbHelper(getApplicationContext());
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM " + UserContract.UserEntry.TABLE_NAME + " WHERE " + UserContract.UserEntry.COLUMN_NAME_NAME + " = " + name, null);
+        if((c.getString(1)).equals(name))
+        {
+            SharedPreferences settings = getSharedPreferences("UsrPrefs", 0);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putString("CurUsr", name);
+        }
+        else
+        {
+            //throw error
+        }
     }
 }

@@ -23,10 +23,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     @Override
     public void onCreate(Bundle savedInstanceState){
-        UserDbHelper mDbHelper = new UserDbHelper(getApplicationContext());
-        SQLiteDatabase db = mDbHelper.getWritableDatabase();
-        User test = new User("Aaron", 19, true);
-        test.saveProfile(db);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
