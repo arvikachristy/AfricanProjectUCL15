@@ -89,20 +89,23 @@ public class MyProfileNew extends ActionBarActivity {
             }
         }
     }
-    public void loadProfile(String name)
+    public User loadProfile(String name)
     {
-        UserDbHelper mDbHelper = new UserDbHelper(getApplicationContext());
-        SQLiteDatabase db = mDbHelper.getWritableDatabase();
-        Cursor c = db.rawQuery("SELECT * FROM " + UserContract.UserEntry.TABLE_NAME + " WHERE " + UserContract.UserEntry.COLUMN_NAME_NAME + " = " + name, null);
-        if((c.getString(1)).equals(name))
+        try
         {
+            UserDbHelper mDbHelper = new UserDbHelper(getApplicationContext());
+            SQLiteDatabase db = mDbHelper.getWritableDatabase();
+            Cursor c = db.rawQuery("SELECT * FROM " + UserContract.UserEntry.TABLE_NAME + " WHERE " + UserContract.UserEntry.COLUMN_NAME_NAME + " = ?", new String[] {name});
             SharedPreferences settings = getSharedPreferences("UsrPrefs", 0);
             SharedPreferences.Editor editor = settings.edit();
             editor.putString("CurUsr", name);
+            editor.commit();
+            User retVal = new User(c.getString(1), c.getInt(2), c.getInt(3));
+            return retVal;
         }
-        else
+        catch(Exception e)
         {
-            //throw error
+            return null;
         }
     }
 }

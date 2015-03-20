@@ -21,9 +21,10 @@ public class UserDbHelper extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db)
     {
         db.execSQL("CREATE TABLE " + UserEntry.TABLE_NAME + " ("
-        + UserEntry.COLUMN_NAME_NAME + " VARCHAR(30) PRIMARY KEY, "
+        + UserEntry.COLUMN_NAME_ID + " INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,"
+        + UserEntry.COLUMN_NAME_NAME + " VARCHAR(30), "
         + UserEntry.COLUMN_NAME_AGE + " INTEGER, "
-        + UserEntry.COLUMN_NAME_INFECTED + " BOOLEAN, "
+        + UserEntry.COLUMN_NAME_INFECTED + " INTEGER, "
         + UserEntry.COLUMN_NAME_LAST_ACCESS + " TIMESTAMP)");
     }
 

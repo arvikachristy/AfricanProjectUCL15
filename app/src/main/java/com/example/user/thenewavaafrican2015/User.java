@@ -12,16 +12,18 @@ import android.database.sqlite.SQLiteDatabase;
 import android.content.ContentValues;
 import com.example.user.thenewavaafrican2015.UserContract.UserEntry;
 import android.database.Cursor;
+import android.util.Log;
+
 public class User
 {
     //attributes
     private String name;
     private int age;
-    private boolean infected;
+    private int infected;
     //Date/Time
     private String dateTime;
 
-    public User(String nName, int nAge, boolean nInfected)
+    public User(String nName, int nAge, int nInfected)
     {
         this.name = nName;
         this.age = nAge;
@@ -53,16 +55,16 @@ public class User
     //toggle/getter for infected
     public void toggleInfected()
     {
-        if(infected == true)
+        if(infected == 1)
         {
-            infected = false;
+            infected = 0;
         }
         else
         {
-            infected = true;
+            infected = 1;
         }
     }
-    public boolean getInfected()
+    public int getInfected()
     {
         return this.infected;
     }
@@ -79,20 +81,24 @@ public class User
     //Saves object to Database
     public void saveProfile(SQLiteDatabase db)
     {
-        ContentValues values = new ContentValues();
-        Cursor c = db.rawQuery("SELECT * FROM " + UserEntry.TABLE_NAME + " WHERE " + UserEntry.COLUMN_NAME_NAME + " = " + this.name, null);
 
-        if ((c.getString(1)).equals(this.name))
-        {
-           //returns error
-        }
-        else
+        ContentValues values = new ContentValues();
+
+        Cursor c = db.rawQuery("SELECT * FROM " + UserEntry.TABLE_NAME + " WHERE " + UserEntry.COLUMN_NAME_NAME + " =?", new String[] {this.name});
+
+        if (c.getCount() == 0)
         {
             values.put(UserEntry.COLUMN_NAME_NAME, this.name);
             values.put(UserEntry.COLUMN_NAME_AGE, this.age);
             values.put(UserEntry.COLUMN_NAME_INFECTED, this.infected);
             values.put(UserEntry.COLUMN_NAME_LAST_ACCESS, this.dateTime);
             db.insert(UserEntry.TABLE_NAME, null, values);
+            Log.d("AfricaApp-Database", "Notification: User " + this.name + " successfully inserted into the database.");
+        }
+        else
+        {
+            Log.e("AfricaApp-Database", "Error: User already exists");
         }
     }
+
 }

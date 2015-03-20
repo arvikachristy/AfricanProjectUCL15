@@ -1,6 +1,7 @@
 package com.example.user.thenewavaafrican2015;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.support.v4.app.Fragment;
@@ -24,6 +25,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -35,8 +37,16 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         button3 = (Button)findViewById(R.id.button3);
         button3.setOnClickListener(this);
-
-
+        //All of this is just testing the Database
+        User test = new User("Aaron", 19, 1);
+        UserDbHelper mDbHelper = new UserDbHelper(getApplicationContext());
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+        test.saveProfile(db);
+        //Example that preferences read
+        SharedPreferences settings = getSharedPreferences("UsrPrefs", 0);
+        String name = settings.getString("CurUsr", "No User");
+        TextView newText = (TextView) findViewById(R.id.test);
+        newText.setText(name);
     }
 
     private void buttonClick(int choice){
@@ -51,8 +61,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             case 3:
                 startActivity(new Intent("com.example.user.thenewavaafrican2015.MyHelp"));
                 break;
-
-
         }
     }
 
@@ -68,7 +76,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             case R.id.button3:
                 buttonClick(3);
                 break;
-
         }
     }
 
@@ -83,8 +90,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public boolean onOptionsItemSelected(MenuItem item) {
         RelativeLayout main_view = (RelativeLayout) findViewById(R.id.main_view);
         LinearLayout mainL_view;
-
-        while (true){
         switch(item.getItemId()){
             case R.id.vika_red:
                 if(item.isChecked())
@@ -113,7 +118,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
             default:
                 return super.onOptionsItemSelected(item);
-        }}
+        }
 
 
     }
