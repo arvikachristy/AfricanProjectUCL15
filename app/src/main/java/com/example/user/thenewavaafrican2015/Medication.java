@@ -49,4 +49,8 @@ public class Medication
     {
 
     }
+
+    public String getName() {
+        return medName;
+    }
 }
