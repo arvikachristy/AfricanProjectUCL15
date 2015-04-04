@@ -23,8 +23,7 @@
         android:text="Name"
         android:ems="10"
         android:id="@+id/nametab"
-        android:layout_marginTop="60dp"
-        android:layout_below="@+id/profilePicture"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <EditText
@@ -32,11 +31,11 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/emailtab"
+        android:id="@+id/infectedid"
         android:layout_below="@+id/nametab"
         android:layout_alignRight="@+id/nametab"
         android:layout_alignEnd="@+id/nametab"
-        android:text="Email" />
+        android:text="Infected" />
 
     <EditText
         android:layout_width="300dp"
@@ -44,9 +43,9 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/agetab"
-        android:layout_below="@+id/emailtab"
-        android:layout_alignLeft="@+id/emailtab"
-        android:layout_alignStart="@+id/emailtab"
+        android:layout_below="@+id/infectedid"
+        android:layout_alignLeft="@+id/infectedid"
+        android:layout_alignStart="@+id/infectedid"
         android:text="Age" />
 
     <Button
@@ -54,6 +53,16 @@
         android:layout_height="wrap_content"
         android:text="Save Profile"
         android:id="@+id/saveprofiletab"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/passtab"
+        android:text="Password"
         android:layout_below="@+id/agetab"
         android:layout_centerHorizontal="true" />
 

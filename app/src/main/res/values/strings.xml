@@ -1,20 +1,19 @@
 <resources>
-    <string name="app_name">African Fun App</string>
+    <string name="app_name">Little Dr.TB Africa</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="red_string">Call The Circus Ringmaster</string>
-    <string name="green_string">Call The Knight</string>
-    <string name="blue_string">Call The Sea Diver</string>
+    <string name="red_string">Dancing Charlice</string>
+    <string name="green_string">Adventurous Edward</string>
+    <string name="blue_string">Reggae Demarco</string>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_my_profile">MyProfile</string>
-    <string name="title_activity_my_profile_new">MyProfileNew</string>
-    <string name="title_activity_my_medicine">MyMedicine</string>
-    <string name="title_activity_my_help">MyHelp</string>
-    <string name="title_activity_my_dosage">MyDosage</string>
-    <string name="title_activity_my_alerts">MyAlerts</string>
-    <string name="title_activity_my_progress">MyProgress</string>
-    <string name="title_activity_my_history">MyHistory</string>
+    <string name="title_activity_my_profile_new">My Profile</string>
+    <string name="title_activity_my_medicine">My Medicine</string>
+    <string name="title_activity_my_help">My Help</string>
+    <string name="title_activity_my_dosage">My Dosage</string>
+    <string name="title_activity_my_alerts">My Alerts</string>
+    <string name="title_activity_my_progress">My Progress</string>
+    <string name="title_activity_my_history">My History</string>
 </resources>

@@ -38,15 +38,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         button3 = (Button)findViewById(R.id.button3);
         button3.setOnClickListener(this);
         //All of this is just testing the Database
-        User test = new User("Aaron", 19, 1);
-        UserDbHelper mDbHelper = new UserDbHelper(getApplicationContext());
-        SQLiteDatabase db = mDbHelper.getWritableDatabase();
-        test.saveProfile(db);
-        //Example that preferences read
-        SharedPreferences settings = getSharedPreferences("UsrPrefs", 0);
-        String name = settings.getString("CurUsr", "No User");
-        TextView newText = (TextView) findViewById(R.id.test);
-        newText.setText(name);
+
+
     }
 
     private void buttonClick(int choice){
@@ -96,7 +89,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                     item.setChecked(false);
                 else
                     item.setChecked(true);
-                main_view.setBackgroundResource(R.drawable.circus);
+                main_view.setBackgroundResource(R.drawable.circusbck);
 
                 return true;
 
@@ -113,7 +106,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                     item.setChecked(false);
                 else
                     item.setChecked(true);
-                main_view.setBackgroundResource(R.drawable.underwater);
+                main_view.setBackgroundResource(R.drawable.underwaterbck);
                 return true;
 
             default:
