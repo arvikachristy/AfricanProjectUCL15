@@ -20,7 +20,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:hint="Name"
         android:ems="10"
         android:id="@+id/nametab"
         android:layout_centerVertical="true"
@@ -29,30 +29,19 @@
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/infectedid"
-        android:layout_below="@+id/nametab"
-        android:layout_alignRight="@+id/nametab"
-        android:layout_alignEnd="@+id/nametab"
-        android:text="Infected" />
-
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
         android:id="@+id/agetab"
-        android:layout_below="@+id/infectedid"
-        android:layout_alignLeft="@+id/infectedid"
-        android:layout_alignStart="@+id/infectedid"
-        android:text="Age" />
+        android:hint="Age"
+        android:layout_below="@+id/nametab"
+        android:layout_alignLeft="@+id/passtab"
+        android:layout_alignStart="@+id/passtab" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save Profile"
+        android:layout_width="180dp"
+        android:layout_height="80dp"
         android:id="@+id/saveprofiletab"
+        android:background="@drawable/submit_button"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
@@ -62,8 +51,32 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/passtab"
-        android:text="Password"
+        android:hint="Password"
         android:layout_below="@+id/agetab"
         android:layout_centerHorizontal="true" />
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/passtab"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_notinfected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/not_infected"
+            android:onClick="onRadioButtonClicked"
+            android:layout_gravity="center_horizontal" />
+
+        <RadioButton
+            android:id="@+id/radio_infected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/infected"
+            android:onClick="onRadioButtonClicked"
+            android:layout_gravity="center_horizontal" />
+    </RadioGroup>
 
 </RelativeLayout>

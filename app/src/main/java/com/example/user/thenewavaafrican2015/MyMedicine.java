@@ -7,9 +7,11 @@ import android.view.MenuItem;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 public class MyMedicine extends ActionBarActivity implements View.OnClickListener{
-    Button mydosagebutton, alertsbutton, historybutton, progressbutton;
+    Button mydosagebutton, alertsbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +24,6 @@ public class MyMedicine extends ActionBarActivity implements View.OnClickListene
         alertsbutton= (Button)findViewById(R.id.alertsbutton);
         alertsbutton.setOnClickListener(this);
 
-        progressbutton = (Button)findViewById(R.id.progressbutton);
-        progressbutton.setOnClickListener(this);
-
-        historybutton = (Button)findViewById(R.id.historybutton);
-        historybutton.setOnClickListener(this);
     }
 
 
@@ -38,12 +35,6 @@ public class MyMedicine extends ActionBarActivity implements View.OnClickListene
                 break;
             case 2:
                 startActivity(new Intent("com.example.user.thenewavaafrican2015.MyAlerts"));
-                break;
-            case 3:
-                startActivity(new Intent("com.example.user.thenewavaafrican2015.MyProgress"));
-                break;
-            case 4:
-                startActivity(new Intent("com.example.user.thenewavaafrican2015.MyHistory"));
                 break;
         }
     }
@@ -58,16 +49,9 @@ public class MyMedicine extends ActionBarActivity implements View.OnClickListene
             case R.id.alertsbutton:
                 buttonClick(2);
                 break;
-            case R.id.progressbutton:
-                buttonClick(3);
-                break;
-            case R.id.historybutton:
-                buttonClick(3);
-                break;
 
         }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -78,18 +62,37 @@ public class MyMedicine extends ActionBarActivity implements View.OnClickListene
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        RelativeLayout  medicineview = (RelativeLayout) findViewById(R.id.medicineview);
+        LinearLayout mainL_view;
+        switch(item.getItemId()){
+            case R.id.charliceicon:
+                if(item.isChecked())
+                    item.setChecked(false);
+                else
+                    item.setChecked(true);
+                medicineview.setBackgroundResource(R.drawable.charbacklogo);
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+                return true;
+
+            case R.id.edwardicon:
+                if(item.isChecked())
+                    item.setChecked(false);
+                else
+                    item.setChecked(true);
+                medicineview.setBackgroundResource(R.drawable.edbacklogo);
+                return true;
+
+            case R.id.demarcoicon:
+                if(item.isChecked())
+                    item.setChecked(false);
+                else
+                    item.setChecked(true);
+                medicineview.setBackgroundResource(R.drawable.marcbacklogo);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
-
 
 }

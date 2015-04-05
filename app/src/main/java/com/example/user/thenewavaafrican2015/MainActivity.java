@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -29,6 +30,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         button = (Button)findViewById(R.id.button);
         button.setOnClickListener(this);
 
@@ -38,6 +41,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         button3 = (Button)findViewById(R.id.button3);
         button3.setOnClickListener(this);
         //All of this is just testing the Database
+
+
 
 
     }
@@ -84,7 +89,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         RelativeLayout main_view = (RelativeLayout) findViewById(R.id.main_view);
         LinearLayout mainL_view;
         switch(item.getItemId()){
-            case R.id.vika_red:
+            case R.id.charlice:
                 if(item.isChecked())
                     item.setChecked(false);
                 else
@@ -93,7 +98,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
                 return true;
 
-            case R.id.aaron_green:
+            case R.id.edward:
                 if(item.isChecked())
                     item.setChecked(false);
                 else
@@ -101,7 +106,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 main_view.setBackgroundResource(R.drawable.park);
                 return true;
 
-            case R.id.aidan_blue:
+            case R.id.demarco:
                 if(item.isChecked())
                     item.setChecked(false);
                 else

@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.database.sqlite.SQLiteDatabase;
 
 public class MyProfileNew extends ActionBarActivity {
@@ -54,41 +55,50 @@ public class MyProfileNew extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        RelativeLayout main_view = (RelativeLayout) findViewById(R.id.main_view);
+        //note for aaron: This one is for the select user menu on the top right!
+        RelativeLayout profile_main = (RelativeLayout) findViewById(R.id.profile_main);
         LinearLayout mainL_view;
+        switch(item.getItemId()){
 
-        while (true){
-            switch(item.getItemId()){
-                case R.id.vika_red:
-                    if(item.isChecked())
-                        item.setChecked(false);
-                    else
-                        item.setChecked(true);
-                    main_view.setBackgroundResource(R.drawable.circus);
+            //This is for the first option:
+            case R.id.charlice: //Replace CHarlice with your id
+                if(item.isChecked())
+                    item.setChecked(false);
+                else
+                    item.setChecked(true);
+                //write here what happened if it's checked!!
+                return true;
 
-                    return true;
+            //This is for the second option:
+            case R.id.edward: //replace edward with your id from backend
+                if(item.isChecked())
+                    item.setChecked(false);
+                else
+                    item.setChecked(true);
+                //write here what happened if it's checked
+                return true;
 
-                case R.id.aaron_green:
-                    if(item.isChecked())
-                        item.setChecked(false);
-                    else
-                        item.setChecked(true);
-                    main_view.setBackgroundResource(R.drawable.park);
-                    return true;
-
-                case R.id.aidan_blue:
-                    if(item.isChecked())
-                        item.setChecked(false);
-                    else
-                        item.setChecked(true);
-                    main_view.setBackgroundResource(R.drawable.underwater);
-                    return true;
-
-                default:
-                    return super.onOptionsItemSelected(item);
-            }
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
+
+    public void onRadioButtonClicked(View view) {
+        //Checking which one of the infected button
+        //Can only choose one!
+        boolean checked = ((RadioButton)view).isChecked();
+        switch(view.getId()) {
+            case R.id.radio_notinfected:
+                if (checked)
+                    //note for aaron: ADD WHAT HAPPENED TO THE BACKEND
+                    break;
+            case R.id.radio_infected:
+                if (checked)
+                    //note for aaron: ADD WHAT HAPPENED TO THE BACKEND
+                    break;
+        }
+    }
+
     public User loadProfile(String name)
     {
         try
