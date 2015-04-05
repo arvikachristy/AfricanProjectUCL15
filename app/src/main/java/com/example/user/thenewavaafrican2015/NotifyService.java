@@ -25,10 +25,11 @@ public class NotifyService extends Service {
     private NotificationManager mNM;
 
     @Override
-    public void OnCreate()
+    public void onCreate()
     {
         mNM = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
     }
+
 
     public int onStartCommand(Intent intent, int flags, int startId)
     {
