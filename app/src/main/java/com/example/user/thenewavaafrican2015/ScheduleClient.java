@@ -17,13 +17,11 @@ public class ScheduleClient {
     private Context mContext;
     private boolean mIsBound;
 
-    public ScheduleClient(Context context)
-    {
+    public ScheduleClient(Context context) {
         mContext = context;
     }
 
-    public void doBindService()
-    {
+    public void doBindService() {
         mContext.bindService(new Intent(mContext, ScheduleService.class), mConnection, Context.BIND_AUTO_CREATE);
     }
 
@@ -35,27 +33,25 @@ public class ScheduleClient {
             mBoundService = ((ScheduleService.ServiceBinder) service).getService();
         }
 
-        public void OnServiceDisconnected (ComponentName className)
+        public void onServiceDisconnected (ComponentName className)
         {
             mBoundService = null;
         }
+    };
 
 
-        //And now the service sets an alarm for a specific date
+    //And now the service sets an alarm for a specific date
 
-        public void setAlarmForNotification(Calendar c)
-        {
-            mBoundService.setAlarm(c);
-        }
+    public void setAlarmForNotification(Calendar c) {
+        mBoundService.setAlarm(c);
+    }
 
-        public void doUnbindService()
-        {
-            if (mIsBound)
-            {
-                //Detach the connection
-                mContext.unbindService(mConnection);
-                mIsBound = false;
-            }
+    public void doUnbindService() {
+        if (mIsBound) {
+            //Detach the connection
+            mContext.unbindService(mConnection);
+            mIsBound = false;
         }
     }
 }
+
