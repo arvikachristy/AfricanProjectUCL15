@@ -10,7 +10,7 @@ import com.example.user.thenewavaafrican2015.UserContract.UserEntry;
 
 public class UserDbHelper extends SQLiteOpenHelper
 {
-    public static final int DATABASE_VER = 1;
+    public static final int DATABASE_VER = 2;
     public static final String DATABASE_NAME = "User.db";
 
     public UserDbHelper(Context context)
@@ -25,7 +25,8 @@ public class UserDbHelper extends SQLiteOpenHelper
         + UserEntry.COLUMN_NAME_NAME + " VARCHAR(30), "
         + UserEntry.COLUMN_NAME_AGE + " INTEGER, "
         + UserEntry.COLUMN_NAME_INFECTED + " INTEGER, "
-        + UserEntry.COLUMN_NAME_LAST_ACCESS + " TIMESTAMP)");
+        + UserEntry.COLUMN_NAME_LAST_ACCESS + " TIMESTAMP"
+        + UserEntry.COLUMN_NAME_PASS + " VARCHAR(60))");
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)

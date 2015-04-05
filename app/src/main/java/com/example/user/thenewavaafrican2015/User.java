@@ -20,14 +20,15 @@ public class User
     private String name;
     private int age;
     private int infected;
+    private String password;
     //Date/Time
     private String dateTime;
-
-    public User(String nName, int nAge, int nInfected)
+    public User(String nName, int nAge, int nInfected, String nPassword)
     {
         this.name = nName;
         this.age = nAge;
         this.infected = nInfected;
+        this.password = nPassword;
         this.updateAccessed();
     }
 
@@ -47,10 +48,11 @@ public class User
     {
         this.age = newAge;
     }
-    public int getAge()
-    {
-        return this.age;
-    }
+    public int getAge(){return this.age;}
+
+    //Getter/Setter for Password
+    public void setPassword(String newPass){this.password = newPass;}
+    public String getPassword(){return this.password;}
 
     //toggle/getter for infected
     public void toggleInfected()
@@ -83,15 +85,17 @@ public class User
     {
 
         ContentValues values = new ContentValues();
-
+        //Creates raw SQL with protection against SQL Injection
         Cursor c = db.rawQuery("SELECT * FROM " + UserEntry.TABLE_NAME + " WHERE " + UserEntry.COLUMN_NAME_NAME + " =?", new String[] {this.name});
-
+        //Ensures not primary key duplicates
         if (c.getCount() == 0)
         {
             values.put(UserEntry.COLUMN_NAME_NAME, this.name);
             values.put(UserEntry.COLUMN_NAME_AGE, this.age);
             values.put(UserEntry.COLUMN_NAME_INFECTED, this.infected);
             values.put(UserEntry.COLUMN_NAME_LAST_ACCESS, this.dateTime);
+            values.put(UserEntry.COLUMN_NAME_PASS, this.password);
+
             db.insert(UserEntry.TABLE_NAME, null, values);
             Log.d("AfricaApp-Database", "Notification: User " + this.name + " successfully inserted into the database.");
         }
@@ -99,6 +103,7 @@ public class User
         {
             Log.e("AfricaApp-Database", "Error: User already exists");
         }
+        c.close();
     }
 
 }
