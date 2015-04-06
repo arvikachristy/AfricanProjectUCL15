@@ -61,24 +61,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MyProgress"
-            android:label="@string/title_activity_my_progress"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="com.example.user.thenewavaafrican2015.MyProgress" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".MyHistory"
-            android:label="@string/title_activity_my_history"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="com.example.user.thenewavaafrican2015.MyHistory" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>
