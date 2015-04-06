@@ -3,6 +3,7 @@ package com.example.user.thenewavaafrican2015;
 /**
  * Created by User on 17/03/2015.
  */
+import java.util.ArrayList;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import 	java.util.Calendar;
@@ -21,8 +22,11 @@ public class User
     private int age;
     private int infected;
     private String password;
+    //List of User Medications
+    ArrayList<Medication> medications = new ArrayList<Medication>();
     //Date/Time
     private String dateTime;
+
     public User(String nName, int nAge, int nInfected, String nPassword)
     {
         this.name = nName;
@@ -93,7 +97,7 @@ public class User
             values.put(UserEntry.COLUMN_NAME_NAME, this.name);
             values.put(UserEntry.COLUMN_NAME_AGE, this.age);
             values.put(UserEntry.COLUMN_NAME_INFECTED, this.infected);
-            values.put(UserEntry.COLUMN_NAME_LAST_ACCESS, this.dateTime);
+            //That when plain text. 2/10 would not do again.
             values.put(UserEntry.COLUMN_NAME_PASS, this.password);
 
             db.insert(UserEntry.TABLE_NAME, null, values);
@@ -101,8 +105,12 @@ public class User
         }
         else
         {
-            Log.e("AfricaApp-Database", "Error: User already exists");
+            c.moveToFirst();
+            String x = c.getString(c.getColumnIndex(UserContract.UserEntry.COLUMN_NAME_PASS));
+            Log.d("Debug", x);
+            Log.e("AfricaAppDatabaseError", "User already exists");
         }
+
         c.close();
     }
 

@@ -20,7 +20,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:hint="Name"
         android:ems="10"
         android:id="@+id/nametab"
         android:layout_centerVertical="true"
@@ -35,7 +35,7 @@
         android:layout_below="@+id/nametab"
         android:layout_alignRight="@+id/nametab"
         android:layout_alignEnd="@+id/nametab"
-        android:text="Infected" />
+        android:hint="Infected" />
 
     <EditText
         android:layout_width="300dp"
@@ -46,7 +46,7 @@
         android:layout_below="@+id/infectedid"
         android:layout_alignLeft="@+id/infectedid"
         android:layout_alignStart="@+id/infectedid"
-        android:text="Age" />
+        android:hint="Age" />
 
     <Button
         android:layout_width="wrap_content"
@@ -54,7 +54,8 @@
         android:text="Save Profile"
         android:id="@+id/saveprofiletab"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="saveChanges"/>
 
     <EditText
         android:layout_width="300dp"
@@ -62,7 +63,7 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/passtab"
-        android:text="Password"
+        android:hint="Password"
         android:layout_below="@+id/agetab"
         android:layout_centerHorizontal="true" />
 

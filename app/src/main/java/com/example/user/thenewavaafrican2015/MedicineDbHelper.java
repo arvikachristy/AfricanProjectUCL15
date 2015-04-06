@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class MedicineDbHelper extends SQLiteOpenHelper
 {
-    public static final int DATABASE_VER = 1;
+    public static final int DATABASE_VER = 3;
     public static final String DATABASE_NAME = "Medicines.db";
 
     public MedicineDbHelper(Context context)
@@ -21,7 +21,7 @@ public class MedicineDbHelper extends SQLiteOpenHelper
     {
         db.execSQL("CREATE TABLE " + MedicineContract.MedicinesEntry.TABLE_NAME + " ("
                                    + MedicineContract.MedicinesEntry.COLUMN_NAME_ID + " INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY, "
-                                   + MedicineContract.MedicinesEntry.COLUMN_NAME_NAME + " VARCHAR(30) NOT NULL FOREIGN KEY, "
+                                   + MedicineContract.MedicinesEntry.COLUMN_NAME_USER + " VARCHAR(30) NOT NULL FOREIGN KEY, "
                                    + MedicineContract.MedicinesEntry.COLUMN_NAME_MEDNAME + " VARCHAR(30), "
                                    + MedicineContract.MedicinesEntry.COLUMN_NAME_DOSAGE + " INTEGER, "
                                    + MedicineContract.MedicinesEntry.COLUMN_NAME_COURSE + " INTEGER, "
