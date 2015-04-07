@@ -12,10 +12,4 @@
             parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
             <item name = "android:background">@drawable/blueblock</item>
         </style>
-
-
-
-
-
-
 </resources>

@@ -6,7 +6,7 @@ package com.example.user.thenewavaafrican2015;
 import java.util.ArrayList;
 import java.util.Date;
 import java.text.SimpleDateFormat;
-import 	java.util.Calendar;
+import java.util.Calendar;
 import java.util.Locale;
 
 import android.database.sqlite.SQLiteDatabase;
@@ -106,8 +106,6 @@ public class User
         else
         {
             c.moveToFirst();
-            String x = c.getString(c.getColumnIndex(UserContract.UserEntry.COLUMN_NAME_PASS));
-            Log.d("Debug", x);
             Log.e("AfricaAppDatabaseError", "User already exists");
         }
 

@@ -50,7 +50,7 @@ public class NotifyService extends Service {
 
     private void showNotification()
     {
-        //This is the notification
+       /** //This is the notification
         CharSequence title = "Reminder";
         int icon = R.drawable.ic_dialog_alert;
         CharSequence text = "It's time to take your medicine";
@@ -65,7 +65,7 @@ public class NotifyService extends Service {
 
         mNM.notify(NOTIFICATION, notification);
 
-        stopSelf();
+        stopSelf();*/
     }
 
 

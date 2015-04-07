@@ -10,7 +10,7 @@ import com.example.user.thenewavaafrican2015.UserContract.UserEntry;
 
 public class UserDbHelper extends SQLiteOpenHelper
 {
-    public static final int DATABASE_VER = 3;
+    public static final int DATABASE_VER = 4;
     public static final String DATABASE_NAME = "User.db";
 
     public UserDbHelper(Context context)

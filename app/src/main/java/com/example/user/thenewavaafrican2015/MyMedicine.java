@@ -18,12 +18,6 @@ public class MyMedicine extends ActionBarActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_medicine);
 
-        mydosagebutton = (Button)findViewById(R.id.mydosagebutton);
-        mydosagebutton.setOnClickListener(this);
-
-        alertsbutton= (Button)findViewById(R.id.alertsbutton);
-        alertsbutton.setOnClickListener(this);
-
     }
 
 
@@ -41,16 +35,7 @@ public class MyMedicine extends ActionBarActivity implements View.OnClickListene
 
 
     public void onClick(View v){
-        switch (v.getId())
-        {
-            case R.id.mydosagebutton:
-                buttonClick(1);
-                break;
-            case R.id.alertsbutton:
-                buttonClick(2);
-                break;
 
-        }
     }
 
     @Override
@@ -62,37 +47,7 @@ public class MyMedicine extends ActionBarActivity implements View.OnClickListene
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        RelativeLayout  medicineview = (RelativeLayout) findViewById(R.id.medicineview);
-        LinearLayout mainL_view;
-        switch(item.getItemId()){
-            case R.id.charliceicon:
-                if(item.isChecked())
-                    item.setChecked(false);
-                else
-                    item.setChecked(true);
-                medicineview.setBackgroundResource(R.drawable.charbacklogo);
-
-                return true;
-
-            case R.id.edwardicon:
-                if(item.isChecked())
-                    item.setChecked(false);
-                else
-                    item.setChecked(true);
-                medicineview.setBackgroundResource(R.drawable.edbacklogo);
-                return true;
-
-            case R.id.demarcoicon:
-                if(item.isChecked())
-                    item.setChecked(false);
-                else
-                    item.setChecked(true);
-                medicineview.setBackgroundResource(R.drawable.marcbacklogo);
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+        return true;
     }
 
 }
