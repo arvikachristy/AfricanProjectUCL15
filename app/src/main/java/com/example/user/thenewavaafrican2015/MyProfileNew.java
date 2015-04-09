@@ -74,7 +74,6 @@ public class MyProfileNew extends ActionBarActivity
                 ((TextView) findViewById(R.id.nametab)).setText(c.getString(c.getColumnIndexOrThrow(UserContract.UserEntry.COLUMN_NAME_NAME)));
                 ((TextView) findViewById(R.id.passtab)).setText(c.getString(c.getColumnIndexOrThrow(UserContract.UserEntry.COLUMN_NAME_PASS)));
                 ((TextView) findViewById(R.id.agetab)).setText(Integer.toString(c.getInt(c.getColumnIndexOrThrow(UserContract.UserEntry.COLUMN_NAME_AGE))));
-                //Temporary value
                 setInfect(c.getInt(c.getColumnIndexOrThrow(UserContract.UserEntry.COLUMN_NAME_INFECTED)));
                 c.close();
             }

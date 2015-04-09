@@ -13,9 +13,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.content.ContentValues;
 import com.example.user.thenewavaafrican2015.UserContract.UserEntry;
 import android.database.Cursor;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 
-public class User
+public class User implements Parcelable
 {
     //attributes
     private String name;
@@ -27,6 +29,7 @@ public class User
     //Date/Time
     private String dateTime;
 
+    public User(){}
     public User(String nName, int nAge, int nInfected, String nPassword)
     {
         this.name = nName;
@@ -110,6 +113,31 @@ public class User
         }
 
         c.close();
+    }
+
+    //Writes Medication data to Parcel
+    public void writeToParcel(Parcel p, int x)
+    {
+        p.writeString(name);
+        p.writeInt(age);
+        p.writeInt(infected);
+        p.writeString(password);
+        p.writeTypedList(medications);
+    }
+
+    //Creates Medication from Parcel
+    public User createFromParcel(Parcel source)
+    {
+        User m =  new User();
+        m.name = source.readString();
+        m.age = source.readInt();
+        m.infected = source.readInt();
+        m.password = source.readString();
+        return m;
+    }
+
+    public int describeContents(){
+        return 0;
     }
 
 }
