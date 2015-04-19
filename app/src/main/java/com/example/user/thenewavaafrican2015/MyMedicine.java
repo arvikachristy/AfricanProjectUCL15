@@ -9,8 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-
+/**
+ * Created by Vika on 18/03/2015.
+ */
 public class MyMedicine extends ActionBarActivity implements View.OnClickListener{
+
     Button mydosagebutton, alertsbutton;
 
     @Override

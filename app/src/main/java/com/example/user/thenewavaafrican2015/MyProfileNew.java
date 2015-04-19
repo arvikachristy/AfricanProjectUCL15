@@ -13,7 +13,9 @@ import android.widget.RelativeLayout;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.database.sqlite.SQLiteDatabase;
-
+/**
+ * Created by Vika on 16/03/2015.
+ */
 public class MyProfileNew extends ActionBarActivity {
     ImageView callprofilepicture;
 
@@ -110,7 +112,7 @@ public class MyProfileNew extends ActionBarActivity {
             SharedPreferences.Editor editor = settings.edit();
             editor.putString("CurUsr", name);
             editor.commit();
-            User retVal = new User(c.getString(1), c.getInt(2), c.getInt(3));
+            User retVal = new User(c.getString(1), c.getInt(2), c.getInt(3), c.getString(4));
             return retVal;
         }
         catch(Exception e)

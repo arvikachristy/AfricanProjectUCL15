@@ -11,8 +11,8 @@
     android:clickable="true">
 
     <Button
-        android:layout_width="170dp"
-        android:layout_height="170dp"
+        android:layout_width="175dp"
+        android:layout_height="165dp"
         android:text=" "
         android:id="@+id/button"
         android:background="@drawable/my_profile_button"
@@ -22,8 +22,8 @@
 
 
     <Button
-        android:layout_width="170dp"
-        android:layout_height="170dp"
+        android:layout_width="175dp"
+        android:layout_height="165dp"
         android:id="@+id/button2"
         android:background="@drawable/my_meds_button"
         android:layout_below="@+id/button"
@@ -31,7 +31,7 @@
         android:layout_alignStart="@+id/button" />
 
     <Button
-        android:layout_width="170dp"
+        android:layout_width="175dp"
         android:layout_height="165dp"
         android:id="@+id/button3"
         android:onClick="sendMessage"

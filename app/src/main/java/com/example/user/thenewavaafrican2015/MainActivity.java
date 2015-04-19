@@ -20,6 +20,11 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.widget.ImageView;
 
+
+/**
+ * Created by Vika on 16/03/2015.
+ */
+
 public class MainActivity extends ActionBarActivity implements View.OnClickListener{
     Button button, button2, button3;
 
@@ -30,8 +35,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         button = (Button)findViewById(R.id.button);
         button.setOnClickListener(this);
 
@@ -41,8 +44,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         button3 = (Button)findViewById(R.id.button3);
         button3.setOnClickListener(this);
         //All of this is just testing the Database
-
-
 
 
     }
