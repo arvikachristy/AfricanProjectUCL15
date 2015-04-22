@@ -7,11 +7,25 @@
     tools:context="com.example.user.thenewavaafrican2015.MyAlerts">
 
     <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Set Alarm"
+        android:id="@+id/remindbutton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <DatePicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/remindbutton"
-        android:layout_marginBottom="169dp"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/datechoose"
+        android:layout_above="@+id/remindbutton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TimePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timechoose"
+        android:layout_above="@+id/datechoose"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
