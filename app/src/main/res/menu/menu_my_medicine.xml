@@ -4,7 +4,7 @@
     tools:context="com.example.user.thenewavaafrican2015.MyMedicine">
 
 
-    <group android:checkableBehavior="single"> //only can check one
+    <group android:checkableBehavior="single">
     <item
         android:id="@+id/charliceicon"
         android:orderInCategory="1"

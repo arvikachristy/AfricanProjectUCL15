@@ -32,6 +32,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public void onCreate(Bundle savedInstanceState)
     {
 
+        SharedPreferences ps = getSharedPreferences("No User", 0);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

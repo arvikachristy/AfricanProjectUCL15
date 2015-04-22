@@ -31,7 +31,7 @@ public class MyDosage extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_medicine);
+        setContentView(R.layout.activity_my_dosage);
 
         //Schedule declaration
         scheduleClient = new ScheduleClient(this);
@@ -160,7 +160,7 @@ public class MyDosage extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_my_medicine, menu);
+        getMenuInflater().inflate(R.menu.menu_my_dosage, menu);
         return true;
     }
 

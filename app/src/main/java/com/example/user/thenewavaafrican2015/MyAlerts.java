@@ -13,7 +13,7 @@ import android.view.View;
 import android.content.Intent;
 
 
-public class MyAlerts extends ActionBarActivity implements OnClickListener{
+public class MyAlerts extends ActionBarActivity{
     NotificationManager notif;
 
     @Override
@@ -21,17 +21,17 @@ public class MyAlerts extends ActionBarActivity implements OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_alerts);
         Button reminder = (Button)findViewById(R.id.remindbutton);
-        reminder.setOnClickListener(this);
+        //reminder.setOnClickListener(this);
         notif = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
     }
 
-    @Override
-    public boolean onClick(View v) {
-        Intent intent = new intent(this, StatusBar.Class);
+   /* @Override
+   public boolean onClick(View v) {
+        Intent intent = new Intent(this, StatusBar.Class);
         PendingIntent mypending = PendingIntent.getActivity(this, 0, intent, flags);
 
-    }
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -54,4 +54,5 @@ public class MyAlerts extends ActionBarActivity implements OnClickListener{
 
         return super.onOptionsItemSelected(item);
     }
+
 }
