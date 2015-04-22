@@ -43,7 +43,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         button3 = (Button)findViewById(R.id.button3);
         button3.setOnClickListener(this);
-        //All of this is just testing the Database
 
 
     }
@@ -82,6 +81,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
         return true;
     }
 

@@ -32,18 +32,17 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/agetab"
-        android:hint="Age"
-        android:layout_below="@+id/nametab"
-        android:layout_alignLeft="@+id/passtab"
-        android:layout_alignStart="@+id/passtab" />
+        android:layout_below="@+id/passtab"
+        android:hint="Age" />
 
     <Button
-        android:layout_width="180dp"
-        android:layout_height="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/saveprofiletab"
         android:background="@drawable/submit_button"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="saveChanges"/>
 
     <EditText
         android:layout_width="300dp"
@@ -52,13 +51,14 @@
         android:ems="10"
         android:id="@+id/passtab"
         android:hint="Password"
-        android:layout_below="@+id/agetab"
+        android:layout_below="@+id/nametab"
         android:layout_centerHorizontal="true" />
 
     <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/radioGroupInf"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/passtab"
+        android:layout_below="@id/agetab"
         android:orientation="horizontal"
         android:gravity="center_horizontal">
 
@@ -78,5 +78,6 @@
             android:onClick="onRadioButtonClicked"
             android:layout_gravity="center_horizontal" />
     </RadioGroup>
+
 
 </RelativeLayout>

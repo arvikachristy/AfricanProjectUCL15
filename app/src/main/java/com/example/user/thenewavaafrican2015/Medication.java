@@ -1,5 +1,8 @@
 package com.example.user.thenewavaafrican2015;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -8,7 +11,7 @@ import java.util.PriorityQueue;
 /**
  * Created by Aaron on 20/03/2015.
  */
-public class Medication
+public class Medication implements Parcelable
 {
     //attributes
     private String medName;
@@ -19,6 +22,36 @@ public class Medication
     private String nextDose;
     private String prevDose;
 
+    //Writes Medication data to Parcel
+    public void writeToParcel(Parcel p, int x)
+    {
+        p.writeString(medName);
+        p.writeInt(dosage);
+        p.writeInt(courseLength);
+        p.writeString(startDate);
+        p.writeString(endDate);
+        p.writeString(nextDose);
+        p.writeString(prevDose);
+    }
+
+    //Creates Medication from Parcel
+    public Medication createFromParcel(Parcel source)
+    {
+        Medication m = new Medication();
+        m.medName = source.readString();
+        m.dosage = source.readInt();
+        m.courseLength = source.readInt();
+        m.startDate = source.readString();
+        m.endDate = source.readString();
+        m.nextDose = source.readString();
+        m.prevDose = source.readString();
+        return m;
+    }
+
+    public int describeContents(){
+        return 0;
+    }
+
     public Medication(String nmedName, int ndosage, int ncourseLength)
     {
         this.medName = nmedName;
@@ -27,6 +60,11 @@ public class Medication
         startDate();
         endDate();
         nextDose();
+    }
+
+    public Medication()
+    {
+
     }
 
     //gets current start date
@@ -53,4 +91,7 @@ public class Medication
     public String getName() {
         return medName;
     }
+    public int getCourseLength(){return courseLength;}
+    public String getStartDate(){return startDate;}
+    public int getDosage(){return dosage;}
 }

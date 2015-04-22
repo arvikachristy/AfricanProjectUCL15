@@ -14,7 +14,7 @@ public class MedicineContract
         public static final String TABLE_NAME = "medicines";
         public static final String COLUMN_NAME_ID = "id";
         public static final String COLUMN_NAME_MEDNAME = "medName";
-        public static final String COLUMN_NAME_NAME = "name";
+        public static final String COLUMN_NAME_USER = "userID";
         public static final String COLUMN_NAME_DOSAGE = "dosage";
         public static final String COLUMN_NAME_COURSE = "courseLength";
         public static final String COLUMN_NAME_START = "startDate";
