@@ -65,7 +65,7 @@ public class MyAlerts extends ActionBarActivity implements OnClickListener{
    public void onClick(View v) {
        /*Context context = getApplicationContext();
        Intent intent = new Intent(this, MyAlerts.class); //set up class to open, replace class
-        PendingIntent mypending = PendingIntent.getActivity(this, 0, intent, Intent.FLAG_ACTIVITY_NEW_TASK);
+        PendingIntent mypending=PendingIntent.getActivity(this, 0, intent, Intent.FLAG_ACTIVITY_NEW_TASK);
 
        Notification mynotify = new Notification.Builder(this)
                .setSmallIcon(R.drawable.logo)
