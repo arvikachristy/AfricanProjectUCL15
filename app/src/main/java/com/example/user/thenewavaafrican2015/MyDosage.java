@@ -1,9 +1,11 @@
 package com.example.user.thenewavaafrican2015;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,7 +23,7 @@ import java.util.Calendar;
 import java.util.List;
 
 
-public class MyDosage extends ActionBarActivity {
+public class MyDosage extends Activity {
     EditText medNameTxt, timeTxt, freqTxt, minTxt;
     List<Medication> Medicines = new ArrayList<Medication>();
     ListView medicineListView;
@@ -30,21 +32,25 @@ public class MyDosage extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("debug", "Started class");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_dosage);
 
         //Schedule declaration
+        /*
         scheduleClient = new ScheduleClient(this);
         scheduleClient.doBindService();
+        */
 
         //Text declarations
 
-        medNameTxt = (EditText) findViewById(R.id.editMed);
-        timeTxt = (EditText) findViewById(R.id.editRemTime);
+        medNameTxt = (EditText)findViewById(R.id.editMed);
+        timeTxt = (EditText)findViewById(R.id.editRemTime);
         //This should be passed in
-        freqTxt = (EditText) findViewById(R.id.editRemFreq);
-        minTxt = (EditText) findViewById(R.id.editRemMin);
-        medicineListView = (ListView) findViewById(R.id.listView);
+        freqTxt = (EditText)findViewById(R.id.editRemFreq);
+        minTxt = (EditText)findViewById(R.id.editRemMin);
+        medicineListView = (ListView)findViewById(R.id.listView);
 
         TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
 
@@ -62,20 +68,20 @@ public class MyDosage extends ActionBarActivity {
 
         //Cast some of the things
 
-        final String medName = medNameTxt.toString();
-        final String medDosage = freqTxt.toString();
-        final String medTiming = minTxt.toString();
 
-        final int nDosage = Integer.parseInt(medDosage);
-        final int nTiming = Integer.parseInt(medTiming);
+
 
         final Button addBtn =(Button) findViewById(R.id.button);
         addBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v)  {
-                addMedicine(medName, nDosage, nTiming);
-                /*populateList(); */
-                Toast.makeText(getApplicationContext(), medNameTxt.getText().toString() + " has been added to your medicines", Toast.LENGTH_SHORT).show();
+
+                final String medName = medNameTxt.getText().toString();
+                final String medDosage = freqTxt.getText().toString();
+                final String medTiming = minTxt.getText().toString();
+                addMedicine(medName, Integer.parseInt(medDosage), Integer.parseInt(medTiming));
+                populateList();
+                Toast.makeText(getApplicationContext(), medName + " has been added to your medicines", Toast.LENGTH_SHORT).show();
 
                 //Create a new calendar
 
@@ -144,10 +150,10 @@ public class MyDosage extends ActionBarActivity {
             name.setText(currentMedicine.getName());
 
             TextView time = (TextView) view.findViewById(R.id.medicineName);
-            name.setText(currentMedicine.getName());
+            time.setText(currentMedicine.getName());
 
             TextView frequency = (TextView) view.findViewById(R.id.doseTime);
-            time.setText(currentMedicine.getName());
+            frequency.setText(currentMedicine.getName());
 
             TextView distribution = (TextView) view.findViewById(R.id.doseDistri);
             distribution.setText(currentMedicine.getName());
