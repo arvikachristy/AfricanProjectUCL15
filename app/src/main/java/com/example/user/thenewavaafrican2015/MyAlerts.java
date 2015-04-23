@@ -16,6 +16,8 @@ import android.widget.DatePicker;
 import android.widget.TimePicker;
 import java.util.Calendar;
 import android.app.AlarmManager;
+import android.widget.Toast;
+
 /**
  * Created by Vika on 22/04/2015.
  */
@@ -52,6 +54,8 @@ public class MyAlerts extends ActionBarActivity implements OnClickListener{
 
                 PendingIntent displayIntent = PendingIntent.getActivity(getBaseContext(), 0, new Intent("com.example.user.thenewavaafrican2015.AlertDetails"), 0);
                 alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), displayIntent);
+
+                Toast.makeText(getApplicationContext(), "You've added a new alert", Toast.LENGTH_SHORT).show();
             }
         });
 

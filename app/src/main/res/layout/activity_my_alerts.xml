@@ -7,12 +7,12 @@
     tools:context="com.example.user.thenewavaafrican2015.MyAlerts">
 
     <Button
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="Set Alarm"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:id="@+id/remindbutton"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/setalarmbutton" />
 
     <DatePicker
         android:layout_width="wrap_content"

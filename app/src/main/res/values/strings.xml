@@ -13,11 +13,12 @@
     <string name="not_infected">Not Infected</string>
     <string name="infected">Infected</string>
     <string name="title_activity_my_medicine">My Medicine</string>
-    <string name="title_activity_my_help">My Help</string>
+    <string name="title_activity_my_help">My TB World</string>
     <string name="title_activity_my_dosage">My Dosage</string>
     <string name="title_activity_my_alerts">My Alerts</string>
     <string name="title_activity_what_is_tb">WhatIsTB</string>
     <string name="title_activity_get_help">GetHelp</string>
     <string name="title_activity_managing_tb">ManagingTB</string>
     <string name="title_activity_preventing_tb">PreventingTB</string>
+    <string name="title_activity_my_tuberculosis">MyTuberculosis</string>
 </resources>

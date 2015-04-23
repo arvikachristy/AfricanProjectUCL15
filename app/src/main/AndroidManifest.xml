@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.user.thenewavaafrican2015" >
-<uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +15,7 @@
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -23,6 +25,7 @@
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.example.user.thenewavaafrican2015.MyProfileNew" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -32,6 +35,7 @@
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.example.user.thenewavaafrican2015.MyMedicine" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -51,6 +55,7 @@
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.example.user.thenewavaafrican2015.MyDosage" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -60,16 +65,17 @@
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.example.user.thenewavaafrican2015.MyAlerts" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".WhatIsTB"
             android:label="@string/title_activity_what_is_tb"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.example.user.thenewavaafrican2015.WhatIsTB" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -79,6 +85,7 @@
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.example.user.thenewavaafrican2015.GetHelp" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -88,6 +95,7 @@
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.example.user.thenewavaafrican2015.ManagingTB" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -97,26 +105,27 @@
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.example.user.thenewavaafrican2015.PreventingTB" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".AlertDetails"
+        <activity
+            android:name=".AlertDetails"
             android:label="Set Up Your Alert"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.example.user.thenewavaafrican2015.AlertDetails" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity android:name=".DisplayNotif" >
             <intent-filter>
                 <action android:name="com.example.user.thenewavaafrican2015.DisplayNotif" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
