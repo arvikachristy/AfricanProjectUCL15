@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -24,7 +25,8 @@ import java.util.List;
 
 
 public class MyDosage extends Activity {
-    EditText medNameTxt, timeTxt, freqTxt, minTxt;
+    EditText medNameTxt, freqTxt, minTxt;
+    TimePicker timeTxt;
     List<Medication> Medicines = new ArrayList<Medication>();
     ListView medicineListView;
 
@@ -46,7 +48,7 @@ public class MyDosage extends Activity {
         //Text declarations
 
         medNameTxt = (EditText)findViewById(R.id.editMed);
-        timeTxt = (EditText)findViewById(R.id.editRemTime);
+        timeTxt = (TimePicker)findViewById(R.id.timepick);
         //This should be passed in
         freqTxt = (EditText)findViewById(R.id.editRemFreq);
         minTxt = (EditText)findViewById(R.id.editRemMin);
@@ -89,14 +91,14 @@ public class MyDosage extends Activity {
 
                 //Need to do some work on setting
 
-                scheduleClient.setAlarmForNotification(c);
+                //scheduleClient.setAlarmForNotification(c);
 
             }
         });
 
 
 
-        medNameTxt.addTextChangedListener(new TextWatcher() {
+        minTxt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -104,7 +106,7 @@ public class MyDosage extends Activity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                addBtn.setEnabled(!medNameTxt.getText().toString().trim().isEmpty());
+                addBtn.setEnabled(FieldsFull());
 
             }
 
@@ -118,6 +120,23 @@ public class MyDosage extends Activity {
 
     }
 
+    private boolean FieldsFull()
+    {
+        if (medNameTxt.getText().toString().equals(""))
+        {
+            return false;
+        }
+        if(freqTxt.getText().toString().equals(""))
+        {
+            return false;
+        }
+        if(minTxt.getText().toString().equals(""))
+        {
+            return false;
+        }
+        return true;
+    }
+
 
     private void populateList()
     {
@@ -128,7 +147,8 @@ public class MyDosage extends Activity {
 
     private void addMedicine(String medNameTxt, int dosage, int timeBetween)
     {
-        Medicines.add(new Medication(medNameTxt, dosage, timeBetween));
+        Globals.curUsr.medications.add(new Medication(medNameTxt, dosage, timeBetween));
+
     }
 
     private class MedicineListAdapter extends ArrayAdapter<Medication>
@@ -144,7 +164,7 @@ public class MyDosage extends Activity {
             if (view == null)
                 view = getLayoutInflater().inflate(R.layout.listview_item, parent, false);
 
-            Medication currentMedicine = Medicines.get(position);
+            Medication currentMedicine = Globals.curUsr.medications.get(position);
 
             TextView name = (TextView) view.findViewById(R.id.medicineName);
             name.setText(currentMedicine.getName());

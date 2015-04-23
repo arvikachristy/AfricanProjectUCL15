@@ -1,5 +1,7 @@
 package com.example.user.thenewavaafrican2015;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -35,7 +37,8 @@ public class MyProfileNew extends ActionBarActivity
         //Preferences Read
         SharedPreferences settings = getSharedPreferences("UsrPrefs", 0);
         String name = settings.getString("CurUsr", "No User");
-        readPrevVals(name);
+            readPrevVals(name);
+
         callprofilepicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,12 +56,6 @@ public class MyProfileNew extends ActionBarActivity
         //Database Access
         UserDbHelper mDbHelper = new UserDbHelper(getApplicationContext());
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
-        if(name.equals("No User"))
-        {
-            ((Button) findViewById(R.id.saveprofiletab)).setText("Create New User");
-        }
-        else
-        {
             try
             {
                 //Db query
@@ -85,7 +82,7 @@ public class MyProfileNew extends ActionBarActivity
                 editor.putString("CurUsr", "No User");
                 editor.apply();
             }
-        }
+
     }
     public void setInfect(int x)
     {
@@ -131,6 +128,7 @@ public class MyProfileNew extends ActionBarActivity
         UserDbHelper mDbHelper = new UserDbHelper(getApplicationContext());
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
         Cursor c = db.rawQuery("SELECT " + UserContract.UserEntry.COLUMN_NAME_NAME + " FROM " + UserContract.UserEntry.TABLE_NAME, null);
+        menu.add("New User");
         while(c.moveToNext())
         {
             menu.add(c.getString(0));
@@ -143,7 +141,18 @@ public class MyProfileNew extends ActionBarActivity
     {
         SharedPreferences settings = getSharedPreferences("UsrPrefs", 0);
         //All of this is just testing the Database
-        PasswordDialogFragment.onCreateDialog(getApplicationContext(), this, (String)item.getTitle(), settings);
+        if(item.getTitle().equals("New User"))
+        {
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putString("CurUsr", "No User");
+            editor.apply();
+            finish();
+            startActivity(getIntent());
+        }
+        else
+        {
+            PasswordDialogFragment.onCreateDialog(getApplicationContext(), this, (String) item.getTitle(), settings);
+        }
         return true;
     }
     public void onRadioButtonClicked(View view)
@@ -165,10 +174,18 @@ public class MyProfileNew extends ActionBarActivity
     }
     public void saveChanges(View v)
     {
+        String message = "User successfully added!";
         if(!checkIfNull())
         {
             //Display Error
             Log.e("Error", "Null fields. All fields must be filled.");
+            //Show prompt sayings login success and creates new logic success dialog
+            AlertDialog.Builder nullFields = new AlertDialog.Builder(this);
+            nullFields.setTitle("Error");
+            nullFields.setMessage("All fields must be filled, please check and try again!");
+            nullFields.setPositiveButton("Okay", null);
+            nullFields.create();
+            nullFields.show();
         }
         else
         {
@@ -181,8 +198,9 @@ public class MyProfileNew extends ActionBarActivity
             if(!curUsr.equals("No User"))
             {
                 //delete previous user
-                db.delete(UserContract.UserEntry.TABLE_NAME, UserContract.UserEntry.COLUMN_NAME_ID + "=?",new String[] {curUsr});
+                db.delete(UserContract.UserEntry.TABLE_NAME, UserContract.UserEntry.COLUMN_NAME_NAME + "=?",new String[] {curUsr});
                 Log.d("Debug", "Deleted User " + UserContract.UserEntry.COLUMN_NAME_NAME);
+                message = "User Updated!";
             }
             //read new vals
             String name = (String)((TextView) findViewById(R.id.nametab)).getText().toString();
@@ -194,6 +212,16 @@ public class MyProfileNew extends ActionBarActivity
             Log.d("Debug", "Created User with attributes: " + usr.getName() +  ", " + usr.getAge() + ", " + usr.getInfected() + ", " + usr.getPassword());
             //Save File
             usr.saveProfile(db);
+            Globals.curUsr = usr;
+            //Build an alert
+            AlertDialog.Builder addedFields = new AlertDialog.Builder(this);
+            addedFields.setTitle("Success");
+            addedFields.setMessage("User updated!");
+            addedFields.setPositiveButton("Okay", null);
+            addedFields.create();
+            addedFields.show();
+
+            //update user prefs
             SharedPreferences.Editor editor = settings.edit();
             editor.putString("CurUsr", usr.getName());
             editor.apply();
