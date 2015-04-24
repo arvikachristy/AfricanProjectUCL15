@@ -54,7 +54,7 @@ public class MyProfileNew extends ActionBarActivity
     {
         Log.d("Debug", "Preferences curUsr = " + name);
         //Database Access
-        UserDbHelper mDbHelper = new UserDbHelper(getApplicationContext());
+        UserDbHelper mDbHelper = UserDbHelper.getInstance(getApplicationContext());
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
             try
             {
@@ -125,7 +125,7 @@ public class MyProfileNew extends ActionBarActivity
     {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_my_profile_new, menu);
-        UserDbHelper mDbHelper = new UserDbHelper(getApplicationContext());
+        UserDbHelper mDbHelper = UserDbHelper.getInstance(getApplicationContext());
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
         Cursor c = db.rawQuery("SELECT " + UserContract.UserEntry.COLUMN_NAME_NAME + " FROM " + UserContract.UserEntry.TABLE_NAME, null);
         menu.add("New User");
@@ -193,7 +193,7 @@ public class MyProfileNew extends ActionBarActivity
             SharedPreferences settings = getSharedPreferences("UsrPrefs", 0);
             String curUsr = settings.getString("CurUsr", "No User");
             //Database Access
-            UserDbHelper mDbHelper = new UserDbHelper(getApplicationContext());
+            UserDbHelper mDbHelper = UserDbHelper.getInstance(getApplicationContext());
             SQLiteDatabase db = mDbHelper.getWritableDatabase();
             if(!curUsr.equals("No User"))
             {
@@ -213,19 +213,13 @@ public class MyProfileNew extends ActionBarActivity
             //Save File
             usr.saveProfile(db);
             Globals.curUsr = usr;
-            //Build an alert
-            AlertDialog.Builder addedFields = new AlertDialog.Builder(this);
-            addedFields.setTitle("Success");
-            addedFields.setMessage("User updated!");
-            addedFields.setPositiveButton("Okay", null);
-            addedFields.create();
-            addedFields.show();
 
             //update user prefs
             SharedPreferences.Editor editor = settings.edit();
             editor.putString("CurUsr", usr.getName());
             editor.apply();
             readPrevVals(usr.getName());
+            Globals.restoreState(getApplicationContext(), name);
             finish();
             startActivity(getIntent());
         }
@@ -250,26 +244,7 @@ public class MyProfileNew extends ActionBarActivity
         }
         return true;
     }
-    public User loadProfile(String name)
-    {
-        try
-        {
-            UserDbHelper mDbHelper = new UserDbHelper(getApplicationContext());
-            SQLiteDatabase db = mDbHelper.getWritableDatabase();
-            //Creating a database cursor with an SQL command
-            Cursor c = db.rawQuery("SELECT * FROM " + UserContract.UserEntry.TABLE_NAME + " WHERE " + UserContract.UserEntry.COLUMN_NAME_NAME + " =?", new String[]{name});
-            SharedPreferences settings = getSharedPreferences("UsrPrefs", -1);
-            SharedPreferences.Editor editor = settings.edit();
-            editor.putString("CurUsr", name);
-            editor.commit();
-            return new User(c.getString(1), c.getInt(2), c.getInt(3), c.getString(4));
-        }
-        catch(Exception e)
-        {
-            Log.e("Error", "Could not load profile");
-            return null;
-        }
-    }
+
     //Logical Exclusive Or
     public static boolean XOR(boolean x, boolean y)
     {

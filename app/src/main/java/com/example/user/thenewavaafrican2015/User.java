@@ -25,7 +25,7 @@ public class User implements Parcelable
     private int infected;
     private String password;
     //List of User Medications
-    ArrayList<Medication> medications = new ArrayList<Medication>();
+    private ArrayList<Medication> medications;
     //Date/Time
     private String dateTime;
 
@@ -37,6 +37,34 @@ public class User implements Parcelable
         this.infected = nInfected;
         this.password = nPassword;
         this.updateAccessed();
+        this.medications = new ArrayList<Medication>();
+    }
+
+    //Add to List
+    public void addToList(Medication m)
+    {
+        if(medications != null)
+        {
+            this.medications.add(m);
+        }
+        else
+        {
+            Log.e("Error", "Arraylist is null");
+        }
+    }
+
+    //get from list
+    public Medication getFromList(int x)
+    {
+        return medications.get(x);
+    }
+
+    //Get List
+    public ArrayList<Medication> getList()
+    {
+        if(medications!=null)
+            return new ArrayList<Medication>();
+        return this.medications;
     }
 
     //Getter/Setter for Name
@@ -100,7 +128,7 @@ public class User implements Parcelable
             values.put(UserEntry.COLUMN_NAME_NAME, this.name);
             values.put(UserEntry.COLUMN_NAME_AGE, this.age);
             values.put(UserEntry.COLUMN_NAME_INFECTED, this.infected);
-            //That when plain text. 2/10 would not do again.
+            //That feel when plain text. 2/10 would not do again.
             values.put(UserEntry.COLUMN_NAME_PASS, this.password);
 
             db.insert(UserEntry.TABLE_NAME, null, values);

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -35,7 +36,14 @@ public class MyDosage extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("debug", "Started class");
-
+        try
+        {
+            populateList();
+        }
+        catch(Exception e)
+        {
+            Log.e("Error","No Entries found in Medication List");
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_dosage);
 
@@ -52,7 +60,7 @@ public class MyDosage extends Activity {
         //This should be passed in
         freqTxt = (EditText)findViewById(R.id.editRemFreq);
         minTxt = (EditText)findViewById(R.id.editRemMin);
-        medicineListView = (ListView)findViewById(R.id.listView);
+        medicineListView = (ListView)findViewById(R.id.medicineListView);
 
         TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
 
@@ -147,14 +155,16 @@ public class MyDosage extends Activity {
 
     private void addMedicine(String medNameTxt, int dosage, int timeBetween)
     {
-        Globals.curUsr.medications.add(new Medication(medNameTxt, dosage, timeBetween));
-
+        Medication m = new Medication(medNameTxt, dosage, timeBetween);
+        Globals.curUsr.addToList(m);
+        MedicineDBAccessor dbAccessor = new MedicineDBAccessor(getApplicationContext());
+        dbAccessor.insertNewMedication(m);
     }
 
     private class MedicineListAdapter extends ArrayAdapter<Medication>
     {
         public MedicineListAdapter() {
-            super (MyDosage.this, R.layout.listview_item, Medicines);
+            super (MyDosage.this, R.layout.listview_item, Globals.curUsr.getList());
         }
 
 
@@ -164,7 +174,7 @@ public class MyDosage extends Activity {
             if (view == null)
                 view = getLayoutInflater().inflate(R.layout.listview_item, parent, false);
 
-            Medication currentMedicine = Globals.curUsr.medications.get(position);
+            Medication currentMedicine = Globals.curUsr.getFromList(position);
 
             TextView name = (TextView) view.findViewById(R.id.medicineName);
             name.setText(currentMedicine.getName());
@@ -180,7 +190,7 @@ public class MyDosage extends Activity {
 
             return view;
         }
-        }
+    }
 
 
     @Override

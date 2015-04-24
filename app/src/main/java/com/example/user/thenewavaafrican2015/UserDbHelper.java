@@ -12,6 +12,8 @@ public class UserDbHelper extends SQLiteOpenHelper
 {
     public static final int DATABASE_VER = 4;
     public static final String DATABASE_NAME = "User.db";
+    public static UserDbHelper instance;
+    public static SQLiteDatabase users;
 
     public UserDbHelper(Context context)
     {
@@ -34,5 +36,13 @@ public class UserDbHelper extends SQLiteOpenHelper
     {
         db.execSQL("DROP TABLE IF EXISTS " + UserEntry.TABLE_NAME);
         onCreate(db);
+    }
+    public static UserDbHelper getInstance(Context context)
+    {
+        if(instance == null)
+        {
+            instance = new UserDbHelper(context);
+        }
+        return instance;
     }
 }

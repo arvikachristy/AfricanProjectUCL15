@@ -2,6 +2,7 @@ package com.example.user.thenewavaafrican2015;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.support.v4.app.Fragment;
@@ -34,6 +35,12 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         SharedPreferences ps = getSharedPreferences("UsrPrefs", 0);
         String nip = ps.getString("CurUsr", "No User");
+        UserDbHelper mDbHelper = UserDbHelper.getInstance(getApplicationContext());
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM " + UserContract.UserEntry.TABLE_NAME + " WHERE " + UserContract.UserEntry.COLUMN_NAME_NAME + " =?", new String[]{nip});
+        Globals.restoreState(getApplicationContext(), nip);
+        if(c.moveToFirst())
+        setTitle("Little Dr. TB Africa - " + c.getString(1));
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
