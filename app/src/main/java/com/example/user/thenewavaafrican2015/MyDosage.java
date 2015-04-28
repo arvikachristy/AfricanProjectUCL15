@@ -168,7 +168,7 @@ public class MyDosage extends Activity {
     private class MedicineListAdapter extends ArrayAdapter<Medication>
     {
         public MedicineListAdapter() {
-            super (MyDosage.this, R.layout.listview_item, Globals.curUsr.getList());
+            super (MyDosage.this, R.layout.listview_item, Medicines);
         }
 
 
