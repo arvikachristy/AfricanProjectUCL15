@@ -155,10 +155,14 @@ public class MyDosage extends Activity {
 
     private void addMedicine(String medNameTxt, int dosage, int timeBetween)
     {
+        /*
         Medication m = new Medication(medNameTxt, dosage, timeBetween);
         Globals.curUsr.addToList(m);
         MedicineDBAccessor dbAccessor = new MedicineDBAccessor(getApplicationContext());
         dbAccessor.insertNewMedication(m);
+        */
+
+        Medicines.add(new Medication(medNameTxt, dosage, timeBetween));
     }
 
     private class MedicineListAdapter extends ArrayAdapter<Medication>
@@ -174,8 +178,8 @@ public class MyDosage extends Activity {
             if (view == null)
                 view = getLayoutInflater().inflate(R.layout.listview_item, parent, false);
 
-            Medication currentMedicine = Globals.curUsr.getFromList(position);
-
+            //Medication currentMedicine = Globals.curUsr.getFromList(position);
+            Medication currentMedicine = Medicines.get(position);
             TextView name = (TextView) view.findViewById(R.id.medicineName);
             name.setText(currentMedicine.getName());
 
