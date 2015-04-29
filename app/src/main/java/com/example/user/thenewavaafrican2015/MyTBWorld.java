@@ -75,7 +75,7 @@ public class MyTBWorld extends ActionBarActivity  implements View.OnClickListene
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_my_tb_world, menu);
+        //getMenuInflater().inflate(R.menu.menu_my_tb_world, menu);
         return true;
     }
 
