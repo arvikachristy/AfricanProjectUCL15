@@ -25,7 +25,6 @@ public class MyProfileNew extends ActionBarActivity
 {
     ImageView callprofilepicture;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -156,8 +155,7 @@ public class MyProfileNew extends ActionBarActivity
         return true;
     }
     public void onRadioButtonClicked(View view)
-    {
-        //Checking which one of the infected button
+    {   //Checking which one of the infected button
         //Can only choose one!
         boolean checked = ((RadioButton)view).isChecked();
         switch(view.getId())
