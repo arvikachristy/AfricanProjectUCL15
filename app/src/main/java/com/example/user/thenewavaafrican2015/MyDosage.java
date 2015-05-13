@@ -184,10 +184,10 @@ public class MyDosage extends Activity {
             name.setText(currentMedicine.getName());
 
             TextView time = (TextView) view.findViewById(R.id.medicineName);
-            time.setText(currentMedicine.getName());
+            time.setText(currentMedicine.getCourseLength());
 
             TextView frequency = (TextView) view.findViewById(R.id.doseTime);
-            frequency.setText(currentMedicine.getName());
+            frequency.setText(currentMedicine.getDosage());
 
             TextView distribution = (TextView) view.findViewById(R.id.doseDistri);
             distribution.setText(currentMedicine.getName());
