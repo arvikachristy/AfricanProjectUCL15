@@ -8,8 +8,8 @@ and provide medication reminders for people undergoing treatment.
 We will try and present the information in a way that is simple but not trivial.
 
 Team Members:
-Anastasia Arvika Christy
-Aaron Birt
+Anastasia Arvika Christy -
+Aaron Birt -
 Aidan Patrick
 
 
